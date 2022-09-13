@@ -1,0 +1,8 @@
+
+*.o
+*.d
+*.elf
+*.nacp
+*.nro
+*.lst
+*.map
