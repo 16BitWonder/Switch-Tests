@@ -64,14 +64,14 @@ int main(int argc, char **argv)
     }
 
     if (can_reboot) {
-        FILE *f = fopen("sdmc:/atmosphere/reboot_payload.bin", "rb");
+        FILE *f = fopen("sdmc:/bootloader/update.bin", "rb");
         if (f == NULL) {
-            printf("Failed to open atmosphere/reboot_payload.bin!\n");
+            printf("Failed to open bootloader/update.bin!\n");
             can_reboot = false;
         } else {
             fread(g_reboot_payload, 1, sizeof(g_reboot_payload), f);
             fclose(f);
-            printf("Press [-] to reboot to payload\n");
+            printf("Rebooting now...\n");
         }
     }
 
@@ -83,7 +83,7 @@ int main(int argc, char **argv)
         padUpdate(&pad);
         u64 kDown = padGetButtonsDown(&pad);
 
-        if (can_reboot && (kDown & HidNpadButton_Minus)) {
+        if (can_reboot) {
             reboot_to_payload();
         }
         if (kDown & HidNpadButton_L)  { break; } // break in order to return to hbmenu
