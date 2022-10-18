@@ -36,10 +36,10 @@ SOURCES		:=	source
 DATA		:=	data
 INCLUDES	:=	include
 EXEFS_SRC	:=	exefs_src
-APP_TITLE	:=	Reboot to Payload
+APP_TITLE	:=	Reboot to Fusee
 APP_AUTHOR	:=	Atmosphere-NX
 APP_VERSION	:=	1.0.0
-#ROMFS	:=	romfs
+ICON		:=	icon.jpg
 
 #---------------------------------------------------------------------------------
 # options for code generation
