@@ -15,21 +15,21 @@ bool updateControls(int *selection, u64 *rawTime, PadState *pad)
 	padUpdate(pad);
 	u64 kDown = padGetButtonsDown(pad);
 	
-	if (kDown & KEY_PLUS) return true;
+	if (kDown & HidNpadButton_Plus) return true;
 	
-	if ((kDown & KEY_DLEFT) || (kDown & KEY_LSTICK_LEFT) || (kDown & KEY_RSTICK_LEFT))
+	if ((kDown & HidNpadButton_Left) || (kDown & HidNpadButton_StickLLeft) || (kDown & HidNpadButton_StickRLeft))
 	{
 		*selection = *selection - 1;
 		if (*selection < 0)
 			*selection = 5;
 	}
-	if ((kDown & KEY_DRIGHT) || (kDown & KEY_LSTICK_RIGHT) || (kDown & KEY_RSTICK_RIGHT))
+	if ((kDown & HidNpadButton_Right) || (kDown & HidNpadButton_StickLRight) || (kDown & HidNpadButton_StickRRight))
 	{
 		*selection = *selection + 1;
 		if (*selection > 5)
 			*selection = 0;
 	}
-	if ((kDown & KEY_DUP) || (kDown & KEY_LSTICK_UP) || (kDown & KEY_RSTICK_UP))
+	if ((kDown & HidNpadButton_Up) || (kDown & HidNpadButton_StickLUp) || (kDown & HidNpadButton_StickRUp))
 	{
 		switch (*selection)
 		{
@@ -89,7 +89,7 @@ bool updateControls(int *selection, u64 *rawTime, PadState *pad)
 				break;
 		}
 	}
-	if ((kDown & KEY_DDOWN) || (kDown & KEY_LSTICK_DOWN) || (kDown & KEY_RSTICK_DOWN))
+	if ((kDown & HidNpadButton_Down) || (kDown & HidNpadButton_StickLDown) || (kDown & HidNpadButton_StickRDown))
 	{
 		switch (*selection)
 		{
@@ -143,7 +143,7 @@ bool updateControls(int *selection, u64 *rawTime, PadState *pad)
 				break;
 		}
 	}
-	if (kDown & KEY_Y)
+	if (kDown & HidNpadButton_Y)
 	{
 		timeSetCurrentTime(TimeType_NetworkSystemClock, *rawTime);
 	}

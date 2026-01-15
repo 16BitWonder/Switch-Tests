@@ -11,6 +11,6 @@ void networkSyncNotEnabled(PadState *pad)
 	{
 		padUpdate(pad);
 		u64 kDown = padGetButtonsDown(pad);
-		if (kDown & KEY_PLUS) return;
+		if (kDown & HidNpadButton_Plus) return;
 	}
 }
